@@ -13,70 +13,26 @@
  
 <p>屏幕宽度为<span>0</span> px</p>
 <p>请试着重新调整浏览器窗口的大小。</p>
-<iframe  id="iframetest" width="320" height="330" name="aa" frameborder="2" src="http://www.iqiyi.com/dianying_new/i_list_huayu.html">1111</iframe>
+<iframe  id="iframe" width="320" height="330" name="aa" frameborder="2" src="http://www.iqiyi.com/dianying_new/i_list_huayu.html">1111</iframe>
 <!--scrolling="no"-->
-<script type="text/javascript">
+<script type="text/javascript">    
     $(document).ready(function(){
-        
-        $.get("http://www.iqiyi.com/dianying_new/i_list_huayu.html", function(data){
-            alert("Data Loaded: " + data);
-            //拿到data以后就直接插入到指定的div里面，加入div id为tag
-            //那么写法为$("#tag").append(data);
-        });
-        function InitialClass(){
-            $("iframe").css("width","60%");
-            $("body").css("background","pink");}
-           /* }*/
-        InitialClass();
-        $(window).resize(function() {
-            var WindowWidth=$(window).width();
-            $("span").text(WindowWidth);
-            var brow=$.browser;
-            var bInfo="";
-            if(brow.msie){
-                if(WindowWidth>1250){
-                    $("iframe").css("width","100%");
-                }else if((900<WindowWidth)&&(WindowWidth<1200)){
-                    $("iframe").css("width","100%");
-                }else if((400<WindowWidth)&&(WindowWidth<900)){
-                    $("iframe").css("width","100%");
-                }else if((100<WindowWidth)&&(WindowWidth<300)){
-                    $("iframe").css("width","100%");
-                }
-            }
-            if(brow.mozilla){}
-            if(brow.safari){}
-            if(brow.opera){}
-        });
- 
- 
-        //滚动监听事件
-        var testiframe=document.getElementById("iframetest").contentWindow;
-        var doc=testiframe.document;
-        /*testiframe.scroll(0,doc.body.scrollHeight);*/
-        testiframe.addEventListener("scroll",function(e){
-            alert("111");
-            return stopDefault(e);
-        },false)
-         testiframe.addEventListener("onclick",function(e){ 
-            alert("111");
-            return stopDefault(e);
-        },false)
-      /*  testiframe.onscroll= function () {
-            alert("11111");
-        }*/
+        $.getJSON("js/userinfo.json", function (data){
+          var $jsontip = $("#jsonTip");
+          var strHtml = "123";
+          //存储数据的变量 
+          $jsontip.empty();
+          //清空内容 
+          $.each(data, function (infoIndex, info){
+            strHtml += "姓名：" + info["name"] + "<br>";
+            strHtml += "性别：" + info["sex"] + "<br>";
+            strHtml += "邮箱：" + info["email"] + "<br>";
+            strHtml += "<hr>" 
+          }) 
+          $jsontip.html(strHtml);
+          //显示处理后的数据 
+        }) 
     });
- 
- 
-   /* var testiframe=document.getElementById("iframetest");
-    console.log(testiframe);
-    var fun = function(){
-        alert("333333");
-        testiframe.removeEventListener("scroll",fun,false);
-    }
-    testiframe.addEventListener("scroll",fun,false);*/
- 
- 
 </script>
 <![endif]-->
 </body>
