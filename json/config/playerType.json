@@ -2,7 +2,6 @@
   {
     "name":"爱奇艺",
     "jsonPath":"aiqiyi",
-    "isOpen":1,
     "jsonUrl":[
       {"华语最好看":"i_list_huayu.json"}
     ]
