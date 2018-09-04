@@ -18,7 +18,7 @@
     $(document).ready(function(){
         $.getJSON("https://raw.githubusercontent.com/liupinjin/note/master/json/config/playerType.json", function (data){
             if(data){
-                $.getJSON("https://raw.githubusercontent.com/liupinjin/note/master/json/"+data[0].jsonPath+"/"+data[0].jsonUrl[0], function (data2){
+                $.getJSON("https://raw.githubusercontent.com/liupinjin/note/master/json/"+data[0].jsonPath+"/"+data[0]['jsonUrl'][0].split(":")[1], function (data2){
                     console.log(data2);
                 });
             }
