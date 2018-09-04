@@ -1,0 +1,9 @@
+
+.send-layout{
+  min-height: 100%;
+}
+.send-layout .send-content{
+  margin:15px 0;
+  padding-left:15%;
+  padding-right:15%;
+}

@@ -1,0 +1,11 @@
+.nav-header{
+  padding-left:15%;
+  padding-right:15%;
+}
+
+.menu-item {
+  min-width:100px;
+  text-align: center;
+  font-size: 24px;
+}
+
