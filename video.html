@@ -11,20 +11,38 @@
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
- 
+<div class="container">
+    <div class="row" id="list">
+
+    </div>
+</div>
 <iframe  id="iframe" width="320" height="330" name="aa" frameborder="2" style="display:none;" src="">1111</iframe>
 <script type="text/javascript"> 
     var $iframe = $("#iframe");
     $(document).ready(function(){
         $.getJSON("https://raw.githubusercontent.com/liupinjin/note/master/json/config/playerType.json", function (data){
             if(data){
+                console.log(data[0]['jsonUrl'][0].split(":"));
                 $.getJSON("https://raw.githubusercontent.com/liupinjin/note/master/json/"+data[0].jsonPath+"/"+data[0]['jsonUrl'][0].split(":")[1], function (data2){
-                    console.log(data2);
+                    var html = "";
+                    data2.forEach(function(item,index){
+                        console.log(item);
+                        html += '<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">' +
+                            '            <div class="thumbnail">' +
+                            '                <img src="http:'+item.img+'" alt="...">' +
+                            '                <div class="caption">' +
+                            '                    <p>'+item.title+'</p>' +
+                            '                    <p>...</p>' +
+                            '                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>' +
+                            '                </div>' +
+                            '            </div>' +
+                            '        </div>';
+                    })
+
+                    $("#list").html(html);
                 });
             }
         });
-
-
     });
 </script>
 <![endif]-->
