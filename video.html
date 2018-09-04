@@ -13,6 +13,12 @@
 <!--scrolling="no"-->
 <script type="text/javascript">
     $(document).ready(function(){
+        
+        $.get("http://www.iqiyi.com/dianying_new/i_list_huayu.html", function(data){
+            alert("Data Loaded: " + data);
+            //拿到data以后就直接插入到指定的div里面，加入div id为tag
+            //那么写法为$("#tag").append(data);
+        });
         function InitialClass(){
             $("iframe").css("width","60%");
             $("body").css("background","pink");}
