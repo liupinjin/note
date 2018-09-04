@@ -16,11 +16,17 @@
 <script type="text/javascript"> 
     var $iframe = $("#iframe");
     $(document).ready(function(){
-        $.getJSON("https://raw.githubusercontent.com/liupinjin/note/master/aiqiyi_i_list_huayu.json", function (data){
-           console.log(data);
-          
-          
-        }); 
+        $.getJSON("https://raw.githubusercontent.com/liupinjin/note/master/json/config/playerType.json", function (data){
+            if(data){
+                $.getJSON("https://raw.githubusercontent.com/liupinjin/note/master/json/aiqiyi/i_list_huayu.json", function (data2){
+                    console.log(data2);
+
+
+                });
+            }
+        });
+
+
     });
 </script>
 <![endif]-->
